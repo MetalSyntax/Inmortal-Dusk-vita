@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <b>Port nativo del clásico RPG de acción de Gamevil para PlayStation Vita.</b><br/>
-  Basado en la versión de Android mediante carga dinámica de librerías (.so) y FalsoJNI.
+  <b>Native PlayStation Vita port of Gamevil's classic action RPG.</b><br/>
+  Powered by dynamic ARM shared library loading (.so loader) and FalsoJNI.
 </p>
 
 <p align="center">
@@ -18,52 +18,52 @@
 
 ---
 
-## 🌟 Características del Port
+## 🌟 Port Features
 
-- **Rendimiento Nativo a 60 FPS:** Renderizado por software RGB565 escalado por hardware a pantalla completa (**960x544**) con filtrado bilineal en `vitaGL`.
-- **Controles Físicos Completos:** Mapeo de botones físicos (Ataque, Habilidades 1-4, Pociones HP/MP, Menú, D-Pad y Stick Analógico) junto a soporte completo para la pantalla táctil frontal.
-- **Audio Nativo de Baja Latencia:** Reproducción de efectos de sonido WAV (PCM) y música de fondo MP3 en bucle mediante `sceAudio`.
-- **Tienda y Tienda de Puntos K Funcional Offline:** Emulación local del protocolo de red de Gamevil/KNETP, eliminando cuelgues infinitos y permitiendo comprar pociones, pergaminos de teletransporte, piedras de resurrección, expansiones de inventario/almacén y orbes sin conexión a servidores.
-- **Recursos de LiveArea en Alta Definición:** Ícono, fondo, splash gate y arte principal remasterizados y adaptados al formato de color indexado de 8 bits exigido por el sistema PlayStation Vita.
+- **Native 60 FPS Performance:** Internal 800x480 RGB565 software rasterizer hardware-scaled to full screen (**960x544**) with bilinear filtering via `vitaGL`.
+- **Full Physical Controls & Touchscreen:** Dual mapping supporting physical action buttons, 8-way directional movement (D-Pad and Left Analog Stick), quick hotkeys for Potions/Menu, and full front touchscreen interaction.
+- **Low-Latency Native Audio:** Native WAV PCM sound effects and looping MP3 background music playback powered by `sceAudio`.
+- **Fully Offline Cash Shop & K-Point Emulation:** Complete local simulation of Gamevil's network protocol, eliminating infinite hangs and allowing seamless purchases of potions, resurrection stones, teleport scrolls, inventory/storage expansions, and artifact orbs without remote server connectivity.
+- **High-Definition LiveArea Assets:** Icon, background, startup gate, and key art remastered and indexed to 8-bit color palettes meeting official PlayStation Vita OS specifications (error `0x8010113D` safe).
 
 ---
 
-## 🎮 Controles
+## 🎮 Controls
 
-| Botón PS Vita | Acción en el Juego |
+| PS Vita Button | In-Game Action |
 | :--- | :--- |
-| **Stick Izquierdo / D-Pad** | Movimiento del personaje en 8 direcciones |
-| **Cruz ($\times$)** | Ataque Principal / Aceptar |
-| **Cuadrado ($\square$)** | Habilidad 1 |
-| **Triángulo ($\triangle$)** | Habilidad 2 |
-| **Círculo ($\bigcirc$)** | Habilidad 3 / Cancelar / Salir |
-| **R1** | Habilidad 4 |
-| **L1** | Poción de Vida (HP) |
-| **SELECT** | Poción de Maná (MP) |
-| **START** | Menú Principal / Pausa |
-| **Pantalla Táctil** | Interacción táctil directa en menús, inventario y HUD |
+| **Left Stick / D-Pad** | 8-Direction Character Movement |
+| **Cross ($\times$)** | Primary Attack / Confirm |
+| **Square ($\square$)** | Skill 1 |
+| **Triangle ($\triangle$)** | Skill 2 |
+| **Circle ($\bigcirc$)** | Skill 3 / Cancel / Back |
+| **R1** | Skill 4 |
+| **L1** | Quick HP Potion |
+| **SELECT** | Quick MP Potion |
+| **START** | In-Game Menu / Pause |
+| **Front Touchscreen** | Direct touch interaction across menus, inventory, and HUD |
 
 ---
 
-## 📦 Instrucciones de Instalación
+## 📦 Installation & Setup
 
-> **Aviso Legal (DMCA):** Este repositorio no contiene archivos de juego protegidos por derechos de autor. Para jugar en tu consola debes extraer los recursos desde un APK legítimo de *Immortal Dusk v1.0.2*.
+> **Legal Notice (DMCA):** This repository does not distribute any copyrighted game assets or proprietary binaries. You must provide the assets extracted from your legally purchased copy of *Immortal Dusk v1.0.2* for Android.
 
-### Requisitos Previos en la Consola
-1. Consola PS Vita / PS TV con Custom Firmware (HENkaku / Enso).
-2. Plugin `kubridge.skprx` instalado en tu `config.txt` de taiHEN.
-3. Plugin `fd_fix.skprx` (o rePatch).
-4. `libshacccg.suprx` extraído en `ur0:data/` (mediante *ShaRKBR3ED* / *CrystalPSM*).
+### Prerequisites on your PS Vita
+1. A PS Vita / PS TV running Custom Firmware (HENkaku / Enso).
+2. `kubridge.skprx` kernel plugin installed in your taiHEN `config.txt`.
+3. `fd_fix.skprx` (or rePatch plugin).
+4. `libshacccg.suprx` extracted to `ur0:data/` (via *ShaRKBR3ED* / *CrystalPSM*).
 
-### Extracción de Archivos del Juego
-1. Descarga e instala `immortal_dusk.vpk` en tu consola mediante **VitaShell**.
-2. Obtén el archivo `Immortal Dusk_1.0.2.apk` y renómbralo a `.zip` (o extráelo con 7-Zip/WinRAR).
-3. Extrae la librería nativa:
+### Asset Extraction Guide
+1. Download and install `immortal_dusk.vpk` on your console via **VitaShell**.
+2. Obtain your legal `Immortal Dusk_1.0.2.apk` file and rename its extension to `.zip` (or extract it with 7-Zip / WinRAR).
+3. Extract the native shared library:
    - `lib/armeabi/libaist-jni.so` $\to$ `ux0:data/immortaldusk/libaist-jni.so`
-4. Extrae los recursos del juego:
-   - La carpeta `assets/` del APK $\to$ `ux0:data/immortaldusk/assets/`
-   - La carpeta `res/raw/` del APK $\to$ `ux0:data/immortaldusk/res/raw/`
-5. La estructura final en tu tarjeta de memoria debe quedar así:
+4. Extract the game resource directories:
+   - APK's `assets/` folder $\to$ `ux0:data/immortaldusk/assets/`
+   - APK's `res/raw/` folder $\to$ `ux0:data/immortaldusk/res/raw/`
+5. The final directory layout on your memory card (`ux0:`) must look like this:
    ```text
    ux0:data/immortaldusk/
    ├── libaist-jni.so
@@ -83,38 +83,38 @@
 
 ---
 
-## 🛠️ Compilación desde el Código Fuente
+## 🛠️ Building from Source
 
-El proyecto utiliza **VitaSDK** y **CMake**.
+This project requires **VitaSDK** and **CMake**.
 
 ```bash
-# 1. Configurar variables de entorno
-export VITASDK=/ruta/a/tu/vitasdk
+# 1. Setup VitaSDK environment variables
+export VITASDK=/path/to/your/vitasdk
 export PATH=$VITASDK/bin:$PATH
 
-# 2. Clonar el repositorio
-git clone https://github.com/tu-usuario/Inmortal-Dusk-vita.git
+# 2. Clone the repository
+git clone https://github.com/your-username/Inmortal-Dusk-vita.git
 cd Inmortal-Dusk-vita
 
-# 3. Compilar usando el script automatizado
+# 3. Build the VPK package using the automated build script
 chmod +x build.sh
 ./build.sh
 ```
 
-El archivo `.vpk` y el `.elf` se generarán dentro del directorio `build/`.
+The output `.vpk` and `.elf` files will be placed inside the `build/` directory.
 
 ---
 
-## 📜 Créditos y Agradecimientos
+## 📜 Credits & Acknowledgements
 
-- **Gamevil / KNETP** por desarrollar el juego original.
-- **TheFloW** por la arquitectura base de carga dinámica de librerías (.so loader).
-- **Rinnegatamante** por `vitaGL`, soporte técnico y herramientas del ecosistema Homebrew de Vita.
-- **Volodymyr Atamanenko** por las librerías `so_util` y plantillas de porteo.
+- **Gamevil / KNETP** for developing the original game.
+- **TheFloW** for the original `.so` loader architecture and groundwork.
+- **Rinnegatamante** for `vitaGL` and invaluable contributions to the PS Vita homebrew ecosystem.
+- **Volodymyr Atamanenko** for `so_util` and soloader boilerplate resources.
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
-El código de este port se distribuye bajo la licencia **MIT**. Consulta [`LICENSE`](LICENSE) para más detalles.
-Los activos y el código binario original del juego pertenecen a sus respectivos autores.
+The loader code is licensed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
+All game assets, trademarks, and original binary code belong to their respective copyright holders.
