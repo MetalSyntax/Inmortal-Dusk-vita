@@ -14,6 +14,9 @@
 *.rar
 *.tar*
 *.so
+*.webp
+*.jpg
+*.jpeg
 
 # Carpetas de datos volcados y descompilados del APK original
 Immortal Dusk*/
@@ -27,8 +30,7 @@ classes.dex
 resources.arsc
 AndroidManifest.xml
 
-# Recursos de juego propietarios (Audio / Video / Sprites)
-# (Permitir únicamente los assets del LiveArea en extras/)
+# Recursos de juego propietarios (Audio / Video / Sprites / Saves)
 *.mp3
 *.ogg
 *.wav
@@ -95,6 +97,8 @@ extras/livearea/._*
 !CMakeLists.txt
 !build.sh
 !README.md
+!PORTING_PLAN.md
+!port_progress.md
 !LICENSE
+!*.md
 !.gitignore
-psvita-port-toolkit

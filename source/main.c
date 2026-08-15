@@ -97,6 +97,8 @@ static void (*Java_com_gamevil_ast_global_SkeletonLauncher_startC)(JNIEnv *env, 
 static jint (*Java_com_gamevil_ast_global_SkeletonLauncher_runC)(JNIEnv *env, jobject obj, jshortArray sBuf);
 static void (*Java_com_gamevil_ast_global_SkeletonLauncher_eventC)(JNIEnv *env, jobject obj, jint action, jint x, jint y);
 static void (*Java_com_gamevil_ast_global_SkeletonLauncher_resumeC)(JNIEnv *env, jobject obj);
+void (*Java_com_gamevil_ast_global_SkeletonLauncher_netState)(JNIEnv *env, jobject obj, jint nState, jint err) = NULL;
+void (*Java_com_gamevil_ast_global_SkeletonLauncher_netRecv)(JNIEnv *env, jobject obj, jbyteArray buf) = NULL;
 
 /* Controls Mapping Definitions */
 #define DPAD_CENTER_X 110
@@ -266,6 +268,8 @@ int main(void) {
     Java_com_gamevil_ast_global_SkeletonLauncher_runC = (void *)so_symbol(&so_mod, "Java_com_gamevil_ast_global_SkeletonLauncher_runC");
     Java_com_gamevil_ast_global_SkeletonLauncher_eventC = (void *)so_symbol(&so_mod, "Java_com_gamevil_ast_global_SkeletonLauncher_eventC");
     Java_com_gamevil_ast_global_SkeletonLauncher_resumeC = (void *)so_symbol(&so_mod, "Java_com_gamevil_ast_global_SkeletonLauncher_resumeC");
+    Java_com_gamevil_ast_global_SkeletonLauncher_netState = (void *)so_symbol(&so_mod, "Java_com_gamevil_ast_global_SkeletonLauncher_netState");
+    Java_com_gamevil_ast_global_SkeletonLauncher_netRecv = (void *)so_symbol(&so_mod, "Java_com_gamevil_ast_global_SkeletonLauncher_netRecv");
 
     if (!Java_com_gamevil_ast_global_SkeletonLauncher_initJni || !Java_com_gamevil_ast_global_SkeletonLauncher_runC) {
         l_fatal("Failed to find native symbols in libaist-jni.so");
