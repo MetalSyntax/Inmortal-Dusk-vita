@@ -1,0 +1,99 @@
+# ==============================================================================
+# .gitignore para Port de PS Vita (Immortal Dusk)
+# Configurado para ignorar contenido con derechos de autor (DMCA),
+# binarios compilados, volcados de memoria y archivos temporales de compilación.
+# ==============================================================================
+
+# --- Contenido DMCA / Propietario del Juego Original (Android) ---
+*.apk
+*.xapk
+*.apks
+*.obb
+*.zip
+*.7z
+*.rar
+*.tar*
+*.so
+
+# Carpetas de datos volcados y descompilados del APK original
+Immortal Dusk*/
+decompiled/
+glsl_dump/
+cg_dump/
+shader_cache/
+
+# Archivos de empaquetado de Android
+classes.dex
+resources.arsc
+AndroidManifest.xml
+
+# Recursos de juego propietarios (Audio / Video / Sprites)
+# (Permitir únicamente los assets del LiveArea en extras/)
+*.mp3
+*.ogg
+*.wav
+*.mid
+*.mp4
+*.bik
+ux0_data/
+data/
+
+# --- Artefactos de Build y Compilación ---
+build/
+build_*/
+cmake-build-*/
+bin/
+out/
+target/
+*.vpk
+*.elf
+*.self
+eboot.bin
+*.sfo
+param.sfo
+*.o
+*.obj
+*.d
+*.gxp
+
+# --- Logs, Crash Dumps y Depuración ---
+logs/
+*.log
+*.txt.log
+*.dmp
+*.psp2dmp
+psp2core*
+coredump*
+*.analysis.txt
+
+# --- Basura de Sistema Operativo y Editores ---
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Excepciones explícitas (Archivos del port que SI se deben trackear) ---
+!extras/livearea/
+!extras/livearea/*
+!extras/cpuinfo
+!extras/meminfo
+!extras/scripts/
+!source/
+!lib/
+!porting_tools/
+!psvita-port-toolkit/
+!.agents/
+!CMakeLists.txt
+!build.sh
+!README.md
+!LICENSE
+!.gitignore
+psvita-port-toolkit
