@@ -83,6 +83,7 @@ __pycache__/
 # --- Excepciones explícitas (Archivos del port que SI se deben trackear) ---
 !extras/livearea/
 !extras/livearea/*
+extras/livearea/._*
 !extras/cpuinfo
 !extras/meminfo
 !extras/scripts/
